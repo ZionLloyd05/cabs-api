@@ -1,0 +1,47 @@
+POST http://localhost:3000/api/drivers HTTP/1.1
+content-type: application/json
+
+{
+    "name": "driver one",
+    "email": "driverone@gmail.com",
+    "phone_number": "08169752668",
+    "license_number": "6868768687",
+    "car_number" : "5756757657"
+}
+
+###
+POST http://localhost:3000/api/drivers/location/635a7d390049eaedbaf996fd HTTP/1.1
+content-type: application/json
+
+{
+    "latitude": 12.972442,
+    "longitude": 77.580643
+}
+
+
+###
+GET  http://localhost:3000/api/drivers/cabs/ HTTP/1.1
+content-type: application/json
+
+{
+    "latitude": 12.962442,
+    "longitude": 77.580643
+}
+
+###
+POST  http://localhost:3000/api/tokens HTTP/1.1
+content-type: application/json
+
+{
+    "email": "driverone@gmail.com"
+}
+
+###
+POST  http://localhost:3000/api/tokens/validate HTTP/1.1
+content-type: application/json
+
+{
+    "email": "driverone@gmail.com",
+    "token": "11111"
+}
+

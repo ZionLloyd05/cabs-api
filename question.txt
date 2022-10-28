@@ -1,0 +1,127 @@
+INSTRUCTION
+
+DURATION: 3 Days
+
+HOW TO SUBMIT:
+
+Share the link to the project on GitHub, Docker hub, and API URL. API should be hosted with any free hosting service provider like Heroku, It should include  API documentation (swagger preferably).
+
+QUESTION 
+
+Using Express JS, MongoDB(or any one of your choice) and Docker create a dockerized simple Cab Search System Application APIs with the following modules.
+
+1. Driver Registration
+              You are expected to create an endpoint that meet the requirements described below 
+
+The expected request should be of the form
+
+{
+    "name": "",
+    "email": "",    ? --------------- should be unique
+    "phone_number":     ? -- should be unique and valid 10 digits
+    "license_number": "",   ? -------------- should be unique
+    "car_number": ""    ? ---------------- should be unique
+}
+                                   
+ Expected response should be of the form(Success):
+{
+    "id": ,
+    "name": "",
+    "email": "",
+    "phone_number":
+    "license_number": "",
+    "car_number": ""    
+}
+                                   
+ Expected response should be of the form(Failure):
+{
+    "status": "failure",
+    "reason": "explanation" ?--- explanation can be any message
+}
+ 
+NOTE: User email must be verified during the registration process 
+HINT: 2 steps registration
+ 
+2. Share Location API
+
+Create an endpoint to save the driver’s location in the system. This endpoint accept the drivers coordinate
+ 
+The expected request should be of the form
+{
+    "latitude": 12.972442,
+    "longitude": 77.580643,
+}
+
+Expected response should be of the form(Success):
+{
+    "status": "success",
+}
+
+
+Expected response should be of the form(Failure):
+{
+    "status": "failure",
+    "reason": "explanation" ?---- explanation can be any message
+}
+ 
+ 
+3. Get Nearby Cabs API
+
+Create an endpoint that  returns a list of cabs which are within 4km range of passenger (using haversine distance). 
+
+The expected request should be of the form:
+{
+    "latitude": 12.972442,
+    "longitude": 77.580643,
+}
+
+
+
+
+Expected response should be of the form(Success):
+{
+    "available_cabs": [
+        {
+            "name": "",
+            "car_number": "",
+            "phone_number": 
+        },
+        {
+            "name": "",
+            "car_number": "",
+            "phone_number": 
+        },
+        {...}
+    ]
+}
+
+If no cabs are found, the Expected response should be of the form:
+{
+    "message": "No cabs available!"
+}
+
+Expected response should be of the form(failure):
+{
+    "status": "failure",
+    "reason": "explanation" ?---- explanation can be any message
+}
+ 
+ 
+Important Notes
+You are to use Typescript for this assessment.
+Your implementation should include unit testing using any of the JavaScript TDD framework
+Adhere to the global standard of RESTFUL  APl development, also ensure to use the correct status response code.
+
+================================
+{
+  "status": "success",
+  "reason": "Driver was successfully registered",
+  "data": {
+    "id": "635a7d390049eaedbaf996fd",
+    "name": "driver one",
+    "email": "driverone@gmail.com",
+    "phone_number": 8169752668,
+    "license_number": "6868768687",
+    "car_number": "5756757657"
+  }
+}
